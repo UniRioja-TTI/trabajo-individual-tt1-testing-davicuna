@@ -5,6 +5,7 @@ public class Entidad {
 	private String name;
 	private String descripcion;
 	
+	
 	public int getId() {
 		return id;
 	}
