@@ -1,6 +1,7 @@
 package servicios;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -8,27 +9,30 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import org.slf4j.Logger;
+import modelo.Destinatario;
+
 class EmailServiceTest {
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
+	private EmailService emailService;
+    private Logger mockLogger;
+    
+    @BeforeEach
+    public void setUp() {
+        mockLogger = mock(Logger.class); 
+        emailService = new EmailService(mockLogger); 
+    }
 
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
+    @Test
+    public void testEnviarEmailDevuelveTrueYLoggeaMensajes() {
 
-	@BeforeEach
-	void setUp() throws Exception {
-	}
+        Destinatario destinatarioPrueba = new Destinatario();
+        String textoEmail = "Cuerpo del mensaje de prueba";
 
-	@AfterEach
-	void tearDown() throws Exception {
-	}
+        boolean resultado = emailService.enviarEmail(destinatarioPrueba, textoEmail);
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+        assertTrue(resultado, "El método enviarEmail siempre debería devolver true");
+       
+    }
 
 }

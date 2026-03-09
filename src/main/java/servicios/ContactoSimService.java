@@ -6,6 +6,7 @@ import modelo.Entidad;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ContactoSimService implements InterfazContactoSim{
 	
-	private Map<Integer, DatosSolicitud> s;
+	private Map<Integer, DatosSolicitud> s=new HashMap<>();
 	private SecureRandom r = new SecureRandom();
 	
 	

@@ -5,7 +5,7 @@ package servicios;
 
 import modelo.Destinatario;
 import org.springframework.stereotype.Service;
-import ch.qos.logback.classic.Logger;
+import org.slf4j.Logger;
 import interfaces.InterfazEnviarEmails;
 
 
